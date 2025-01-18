@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import NavDock from "@/components/Header/NavDock";
@@ -10,7 +10,7 @@ interface ClientLayoutProps {
 
 const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
   return (
-    <div className="dark w-full h-full">
+    <div className="dark w-full h-screen">
       {/* Background sparkles */}
       <div className="fixed top-0 left-0 w-full h-full">
         <SparklesCore

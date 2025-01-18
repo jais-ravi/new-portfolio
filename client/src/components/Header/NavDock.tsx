@@ -6,7 +6,7 @@ const NavDock = () => {
   const links = [
     {
       title: "Home",
-      icon: <FaHome />,
+      icon: <FaHome size={40}/>,
       href: "#",
     },
 
@@ -32,7 +32,7 @@ const NavDock = () => {
     },
   ];
   return (
-    <div className=" flex justify-center items-center">
+    <div className=" flex justify-center items-center sticky ">
       <FloatingDock
         items={links}
       />

@@ -65,11 +65,22 @@
     @apply bg-background text-foreground;
   }
 }
-.contain {
-  max-width: 90rem; /* Adjust the value based on your design */
-  margin-left: auto; /* Center align horizontally */
-  margin-right: auto;
-  padding-left: 1rem; /* Add padding for smaller screens */
-  padding-right: 1rem;
-
+@layer components {
+  .contain {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+  .section{
+    margin-top: 2.5rem;
+  }
+  .capitalize-first-letter::first-letter {
+    text-transform: capitalize;
+  }
+  /* @media (max-width: 800px) {
+    .container {
+      max-width: 100rem; 
+      padding: 0 1rem; 
+    }
+  } */
 }
