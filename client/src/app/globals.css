@@ -84,3 +84,22 @@
     }
   } */
 }
+@font-face {
+  font-family: 'cursiveFont';
+  src: url('/fonts/AirtravelerspersonaluseBdit-ow59x.otf') format('opentype');
+  font-weight: normal; /* Adjust if your font has different weights */
+  font-style: normal;  /* Change to italic if needed */
+}
+@font-face {
+  font-family: 'mainFont';
+  src: url('/fonts/HelveticaNowMTTextMedium_normal_normal.woff2') format('woff');
+  font-weight: normal; /* Adjust if your font has different weights */
+  font-style: normal;  /* Change to italic if needed */
+}
+
+body {
+  font-family: 'mainFont', sans-serif; 
+}
+.cursive-font {
+  font-family: 'cursiveFont', sans-serif;
+}

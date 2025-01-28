@@ -36,7 +36,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className=" max-w-[50rem]">
+      <div className=" max-w-[52rem]">
         <Testimonial/>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">

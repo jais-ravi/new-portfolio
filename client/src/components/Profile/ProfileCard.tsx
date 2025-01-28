@@ -36,7 +36,7 @@ const ProfileCard = () => {
                 className=" w-64 h-64 rounded-md"
               />
             </div>
-            <CardTitle className=" text-center capitalize text-4xl font-semibold">
+            <CardTitle className=" text-center capitalize text-5xl font-semibold cursive-font ">
               ravi jaiswal
             </CardTitle>
           </CardHeader>
