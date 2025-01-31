@@ -3,7 +3,6 @@ import React from "react";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import Testimonial from "./Testimonial";
 
-
 const Home = () => {
   const data = [
     { num: "12", title: "Year of experience" },
@@ -37,11 +36,7 @@ const Home = () => {
         ))}
       </div>
       <div className=" max-w-[52rem]">
-        <Testimonial/>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        {/* <div className="w-full h-96 bg-red-500"></div>
-        <div className="w-full h-96 bg-red-500"></div> */}
+        <Testimonial />
       </div>
     </div>
   );
