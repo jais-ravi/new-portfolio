@@ -63,7 +63,9 @@ export const FollowPointer = ({
   y,
   title,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   x: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   y: any;
   title?: string | React.ReactNode;
 }) => {
