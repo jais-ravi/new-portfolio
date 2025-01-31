@@ -5,7 +5,7 @@ import Testimonial from "./Testimonial";
 
 const Home = () => {
   const data = [
-    { num: "12", title: "Year of experience" },
+    // { num: "12", title: "Year of experience" },
     { num: "46", title: "PROJECTS COMPLETED" },
     { num: "20", title: "WORLDWIDE CLIENTS" },
   ];
