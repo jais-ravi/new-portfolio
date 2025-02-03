@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -29,6 +31,7 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,21 +40,53 @@ const Contact = () => {
       message: "",
     },
   });
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    setLoading(true);
+    try {
+      const response = await axios.post("/api/send-email", {
+        email: data.email,
+        name: data.name,
+        message: data.message,
+      });
+
+      if (response.data.success) {
+        toast({
+          title: "Success",
+          description: response.data.message,
+        });
+        form.reset(); 
+      } else {
+        toast({
+          title: "Error",
+          description: response.data.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send email. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <div>
-      <div className="  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-700">
-        <h1 className=" text-6xl md:text-8xl font-bold uppercase">
+      <div className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-700">
+        <h1 className="text-6xl md:text-8xl font-bold uppercase">
           LET&apos;S WORK
         </h1>
-        <h1 className=" text-6xl md:text-8xl font-bold uppercase ">TOGETHER</h1>
+        <h1 className="text-6xl md:text-8xl font-bold uppercase ">TOGETHER</h1>
       </div>
       <div className="p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-5">
-            <div className=" flex  gap-5">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <div className="flex gap-5">
               <FormField
                 control={form.control}
                 name="name"
@@ -60,9 +95,9 @@ const Contact = () => {
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Jhon Deo"
+                        placeholder="John Doe"
                         {...field}
-                        className=" bg-black"
+                        className="bg-black"
                       />
                     </FormControl>
                     <FormMessage />
@@ -77,9 +112,9 @@ const Contact = () => {
                     <FormLabel>E-mail</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="jhon69@example.com"
+                        placeholder="john@example.com"
                         {...field}
-                        className=" bg-black"
+                        className="bg-black"
                       />
                     </FormControl>
                     <FormMessage />
@@ -97,7 +132,7 @@ const Contact = () => {
                     <Textarea
                       placeholder="Type your message here..."
                       {...field}
-                      className=" bg-black"
+                      className="bg-black"
                       rows={8}
                     />
                   </FormControl>
@@ -105,7 +140,9 @@ const Contact = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Submit"}
+            </Button>
           </form>
         </Form>
       </div>
