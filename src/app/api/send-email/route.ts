@@ -1,7 +1,7 @@
 import sendEmail from "@/helper/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
   try {
     await sendEmail(name, email, message);
