@@ -35,9 +35,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className=" max-w-[52rem]">
-        <Testimonial />
-      </div>
+      <Testimonial />
     </div>
   );
 };

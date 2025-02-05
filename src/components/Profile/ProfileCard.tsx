@@ -71,7 +71,6 @@ const ProfileCard = () => {
         >
           <Card className="max-w-80 flex flex-col justify-center items-center">
             <CardHeader>
-              <div>
                 <Image
                   alt="ravi"
                   src="/profilePic.svg"
@@ -79,8 +78,7 @@ const ProfileCard = () => {
                   height={100}
                   className="w-64 h-64 rounded-md"
                 />
-              </div>
-              <CardTitle className="text-center capitalize text-5xl font-semibold cursive-font">
+              <CardTitle className="text-center capitalize text-5xl  cursive-font">
                 Ravi Jaiswal
               </CardTitle>
             </CardHeader>

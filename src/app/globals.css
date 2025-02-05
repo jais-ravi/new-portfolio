@@ -77,12 +77,6 @@
   .capitalize-first-letter::first-letter {
     text-transform: capitalize;
   }
-  /* @media (max-width: 800px) {
-    .container {
-      max-width: 100rem; 
-      padding: 0 1rem; 
-    }
-  } */
 }
 @font-face {
   font-family: 'cursiveFont';

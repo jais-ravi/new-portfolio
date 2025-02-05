@@ -29,7 +29,6 @@ const Testimonial = () => {
       body: "I'm at a loss for words. This is amazing. I love it.",
       img: "https://avatar.vercel.sh/jane",
     },
-
   ];
   const firstRow = reviews.slice(0, reviews.length / 2);
   const secondRow = reviews.slice(reviews.length / 2);
@@ -74,7 +73,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <div className="  ">
+    <div className=" w-full relative">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
@@ -85,7 +84,9 @@ const Testimonial = () => {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-     </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
   );
 };
 

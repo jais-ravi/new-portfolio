@@ -2,9 +2,31 @@ import sendEmail from "@/helper/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { name, email, message } = await req.json();
   try {
-    await sendEmail(name, email, message);
+    const { name, email, message } = await req.json();
+
+    if (!name || !email || !message) {
+      return new NextResponse( 
+        JSON.stringify({
+          success: false,
+          message: "All fields are required.",
+        }),
+        { status: 400 }
+      );
+    }
+
+    const response = await sendEmail(name, email, message);
+    if (!response || !response.success) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          message: "Failed to send email.",
+        }),
+        { status: 500 }
+      );
+    }
+
+
     return new NextResponse(
       JSON.stringify({
         success: true,

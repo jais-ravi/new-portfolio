@@ -33,14 +33,14 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
           </div>
 
           {/* Grid layout */}
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 h-[calc(100vh-4rem)]">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-7 h-[calc(100vh-4rem)]">
             {/* Profile Card */}
             <div className="mx-auto">
               <ProfileCard />
             </div>
 
             {/* Scrollable content */}
-            <div className=" h-full">{children}</div>
+            <div className=" h-full max-w-4xl ">{children}</div>
           </div>
         </div>
       </div>

@@ -83,10 +83,10 @@ const Contact = () => {
         </h1>
         <h1 className="text-6xl md:text-8xl font-bold uppercase ">TOGETHER</h1>
       </div>
-      <div className="p-8">
+      <div className="py-8 px-3">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            <div className="flex gap-5">
+            <div className="flex gap-5  flex-col md:flex-row ">
               <FormField
                 control={form.control}
                 name="name"
