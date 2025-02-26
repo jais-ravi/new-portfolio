@@ -26,11 +26,10 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
       {/* Foreground content */}
       <div className="relative z-10">
         {/* Main container */}
-        <div className="contain">
-          {/* Navigation */}
           <div className="py-10">
             <NavDock />
           </div>
+        <div className="contain">
 
           {/* Grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-7 h-[calc(100vh-4rem)]">
