@@ -73,7 +73,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <div className=" w-full relative bg-red-500">
+    <div className=" w-full relative ">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
